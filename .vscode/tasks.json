@@ -1,0 +1,74 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SaveAll",
+            "type": "shell",
+            "command": "${command:workbench.action.files.saveAll}"
+        },
+        {
+            "label": "FormatFiles",
+            "type": "shell",
+            "command": "./clang_format.sh"
+        },
+        {
+            "label": "PrebuildTask",
+            "type": "shell",
+            "dependsOn": [
+                "SaveAll",
+                "FormatFiles",
+                "SaveAll"
+            ]
+        },
+        {
+            "label": "RunCMake",
+            "type": "shell",
+            "command": "./run_cmake.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "buildApp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "PrebuildTask"
+        },
+        {
+            "label": "RunCMakeWithTests",
+            "type": "shell",
+            "command": "./run_cmake.sh",
+            "args": [
+                "${workspaceFolder}/build",
+                "buildAppAndTests"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "PrebuildTask"
+        },
+        {
+            "label": "BuildCMakeForApp",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build"
+            ],
+            "group": "build",
+            "dependsOn": "RunCMake"
+        },
+        {
+            "label": "BuildCMakeForTests",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build"
+            ],
+            "group": "build",
+            "dependsOn": "RunCMakeWithTests"
+        }
+    ]
+}
