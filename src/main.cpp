@@ -2,10 +2,7 @@
 
 int main()
 {
-    std::cout << "Basic Project" << std::endl;
-    while (true)
-    {
-        std::string temp = "";
-    };
+    std::cout << "Welcome to SFML Tetris" << std::endl;
+
     return 0;
 }
