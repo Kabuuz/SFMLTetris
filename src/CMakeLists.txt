@@ -1,3 +1,5 @@
+find_package(SFML REQUIRED)
+
 set(EXEC_NAME Tetris)
 
 add_executable(${EXEC_NAME}
@@ -8,5 +10,5 @@ target_include_directories(${EXEC_NAME}
     ${PROJECT_INCLUDE_DIR})
 
 target_link_libraries(${EXEC_NAME}
-    )
+    sfml-graphics)
 
