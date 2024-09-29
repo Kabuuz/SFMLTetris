@@ -6,7 +6,9 @@ add_subdirectory(impl)
 
 add_executable(${EXEC_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Tetris.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/Tetris.cpp #TODO move to different folder
+    #${CMAKE_CURRENT_SOURCE_DIR}/Tetris.hpp #TODO move to different folder
+)
 
 target_include_directories(${EXEC_NAME}
     PUBLIC
