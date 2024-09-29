@@ -5,7 +5,7 @@
 namespace tetris::impl
 {
 
-void BoardGameManager::addToBoard(const std::vector<Position>& positions)
+void GameBoardManager::addToBoard(const std::vector<Position>& positions)
 {
     auto& boardArray = gameBoard_.getBoardArray();
 
@@ -17,7 +17,7 @@ void BoardGameManager::addToBoard(const std::vector<Position>& positions)
     removeFullRows(boardArray);
 }
 
-void BoardGameManager::removeFullRows(GameBoard::BoardArray& boardArray)
+void GameBoardManager::removeFullRows(GameBoard::BoardArray& boardArray)
 {
     for (std::uint8_t rowId = gameBoard_.getBoardHeight() - 1; rowId > 0u;
          rowId--)
@@ -31,7 +31,7 @@ void BoardGameManager::removeFullRows(GameBoard::BoardArray& boardArray)
     }
 }
 
-bool BoardGameManager::isRowFull(const GameBoard::BoardRow& row) const
+bool GameBoardManager::isRowFull(const GameBoard::BoardRow& row) const
 {
     return std::all_of(row.begin(), row.end(),
                        [](const auto& isFilled) { return isFilled; });

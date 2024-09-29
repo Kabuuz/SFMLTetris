@@ -9,10 +9,10 @@
 namespace tetris::impl
 {
 
-class BoardGameManager  //TODO rename to GameBoardManager
+class GameBoardManager
 {
 public:
-    BoardGameManager() = default;
+    GameBoardManager() = default;
 
     void addToBoard(const std::vector<Position>& positions);
 
