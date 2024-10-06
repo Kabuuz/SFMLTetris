@@ -21,6 +21,7 @@ public:
     std::uint8_t getBoardHeight() const;
 
     BoardArray& getBoardArray();
+    const BoardArray& getBoardArray() const;
 
 private:
     BoardArray board_;

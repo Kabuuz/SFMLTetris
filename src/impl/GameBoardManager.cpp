@@ -37,4 +37,24 @@ bool GameBoardManager::isRowFull(const GameBoard::BoardRow& row) const
                        [](const auto& isFilled) { return isFilled; });
 }
 
+std::vector<Position> GameBoardManager::getTakenPositions() const
+{
+    std::vector<Position> takenPositions{};
+    const auto& boardArray = gameBoard_.getBoardArray();
+
+    for (std::uint8_t rowId = 0; rowId < gameBoard_.getBoardHeight(); rowId++)
+    {
+        for (std::uint8_t columnId = 0; columnId < gameBoard_.getBoardWidth();
+             columnId++)
+        {
+            if (boardArray.at(rowId).at(columnId))
+            {
+                takenPositions.emplace_back(rowId, columnId);
+            }
+        }
+    }
+
+    return takenPositions;
+}
+
 }  // namespace tetris::impl

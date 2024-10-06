@@ -15,6 +15,7 @@ public:
     GameBoardManager() = default;
 
     void addToBoard(const std::vector<Position>& positions);
+    std::vector<Position> getTakenPositions() const;
 
 private:
     void removeFullRows(GameBoard::BoardArray& boardArray);

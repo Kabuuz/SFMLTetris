@@ -20,4 +20,9 @@ GameBoard::BoardArray& GameBoard::getBoardArray()
     return board_;
 }
 
+const GameBoard::BoardArray& GameBoard::getBoardArray()const
+{
+    return board_;
+}
+
 }  // namespace tetris::impl
