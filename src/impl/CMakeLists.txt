@@ -2,6 +2,7 @@ add_library(tetris_impl STATIC)
 
 target_sources(tetris_impl
     PUBLIC
+    ${PROJECT_INCLUDE_DIR}/tetris/impl/CollisionDetector.hpp
     ${PROJECT_INCLUDE_DIR}/tetris/impl/Constants.hpp
     ${PROJECT_INCLUDE_DIR}/tetris/impl/fwd.hpp
     ${PROJECT_INCLUDE_DIR}/tetris/impl/GameBoard.hpp
@@ -11,6 +12,7 @@ target_sources(tetris_impl
     ${PROJECT_INCLUDE_DIR}/tetris/impl/Shapes.hpp
 
     PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/CollisionDetector.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/GameBoard.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/GameBoardManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Shape.cpp

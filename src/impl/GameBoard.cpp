@@ -5,12 +5,12 @@ namespace tetris::impl
 
 GameBoard::GameBoard() : board_() {}
 
-std::uint8_t GameBoard::getBoardHeight() const
+std::int8_t GameBoard::getBoardHeight() const
 {
     return BOARD_HEIGHT;
 }
 
-std::uint8_t GameBoard::getBoardWidth() const
+std::int8_t GameBoard::getBoardWidth() const
 {
     return BOARD_WIDTH;
 }
@@ -20,7 +20,7 @@ GameBoard::BoardArray& GameBoard::getBoardArray()
     return board_;
 }
 
-const GameBoard::BoardArray& GameBoard::getBoardArray()const
+const GameBoard::BoardArray& GameBoard::getBoardArray() const
 {
     return board_;
 }

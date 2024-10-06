@@ -1,9 +1,9 @@
 #pragma once
 
-#include <tetris/impl/fwd.hpp>
 #include <tetris/impl/Position.hpp>
+#include <tetris/impl/fwd.hpp>
 
-#include <vector>
+#include <set>
 
 namespace tetris::impl
 {
@@ -15,7 +15,7 @@ public:
 
     void rotate();
     void move(Position deltaPosition);
-    std::vector<Position> getShapeBlocksPosition() const;
+    std::set<Position> getShapeBlocksPosition() const;
 
 private:
     ShapeBlocks shapeBlocks_;

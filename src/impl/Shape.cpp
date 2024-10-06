@@ -14,7 +14,7 @@ void Shape::rotate()
 {
     ShapeBlocks rotated{};
     constexpr int8_t Y_TO_X_SHIFT = 3;
-    uint8_t heightShift = Y_TO_X_SHIFT;
+    int8_t heightShift = Y_TO_X_SHIFT;
 
     //rotate
     for (auto& blockPosition : shapeBlocks_)
@@ -29,7 +29,7 @@ void Shape::rotate()
         }
     }
 
-    constexpr uint8_t BLOCK_SHIFTED = 0;
+    constexpr int8_t BLOCK_SHIFTED = 0;
     //shift to upper corner (already shifted to left)
     if (heightShift != BLOCK_SHIFTED)
     {
@@ -46,12 +46,13 @@ void Shape::move(Position deltaPosition)
     absolutePosition = absolutePosition + deltaPosition;
 }
 
-std::vector<Position> Shape::getShapeBlocksPosition() const
+std::set<Position> Shape::getShapeBlocksPosition() const
 {
-    std::vector<Position> positions{};
-    for (auto position : shapeBlocks_)
+    std::set<Position> positions{};
+    for (const auto& position : shapeBlocks_)
     {
-        positions.push_back(position + absolutePosition);
+        auto absoluteBlockPosition = position + absolutePosition;
+        positions.insert(absoluteBlockPosition);
     }
 
     return positions;

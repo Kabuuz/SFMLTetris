@@ -5,7 +5,7 @@
 namespace tetris::impl
 {
 
-void GameBoardManager::addToBoard(const std::vector<Position>& positions)
+void GameBoardManager::addToBoard(const std::set<Position>& positions)
 {
     auto& boardArray = gameBoard_.getBoardArray();
 
@@ -19,7 +19,7 @@ void GameBoardManager::addToBoard(const std::vector<Position>& positions)
 
 void GameBoardManager::removeFullRows(GameBoard::BoardArray& boardArray)
 {
-    for (std::uint8_t rowId = gameBoard_.getBoardHeight() - 1; rowId > 0u;
+    for (std::int8_t rowId = gameBoard_.getBoardHeight() - 1; rowId > 0u;
          rowId--)
     {
         if (!isRowFull(boardArray.at(rowId)))
@@ -37,19 +37,19 @@ bool GameBoardManager::isRowFull(const GameBoard::BoardRow& row) const
                        [](const auto& isFilled) { return isFilled; });
 }
 
-std::vector<Position> GameBoardManager::getTakenPositions() const
+std::set<Position> GameBoardManager::getTakenPositions() const
 {
-    std::vector<Position> takenPositions{};
+    std::set<Position> takenPositions{};
     const auto& boardArray = gameBoard_.getBoardArray();
 
-    for (std::uint8_t rowId = 0; rowId < gameBoard_.getBoardHeight(); rowId++)
+    for (std::int8_t rowId = 0; rowId < gameBoard_.getBoardHeight(); rowId++)
     {
-        for (std::uint8_t columnId = 0; columnId < gameBoard_.getBoardWidth();
+        for (std::int8_t columnId = 0; columnId < gameBoard_.getBoardWidth();
              columnId++)
         {
             if (boardArray.at(rowId).at(columnId))
             {
-                takenPositions.emplace_back(rowId, columnId);
+                takenPositions.insert({rowId, columnId});
             }
         }
     }

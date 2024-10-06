@@ -4,7 +4,7 @@
 
 #include <tetris/impl/Position.hpp>
 
-#include <vector>
+#include <set>
 
 namespace tetris::impl
 {
@@ -14,8 +14,8 @@ class GameBoardManager
 public:
     GameBoardManager() = default;
 
-    void addToBoard(const std::vector<Position>& positions);
-    std::vector<Position> getTakenPositions() const;
+    void addToBoard(const std::set<Position>& positions);
+    std::set<Position> getTakenPositions() const;
 
 private:
     void removeFullRows(GameBoard::BoardArray& boardArray);

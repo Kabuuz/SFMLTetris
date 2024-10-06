@@ -8,8 +8,8 @@ namespace tetris::impl
 
 class GameBoard
 {
-    static constexpr std::uint8_t BOARD_HEIGHT = 20u;
-    static constexpr std::uint8_t BOARD_WIDTH = 10u;
+    static constexpr std::int8_t BOARD_HEIGHT = 20u;
+    static constexpr std::int8_t BOARD_WIDTH = 10u;
 
 public:
     using BoardRow = std::array<bool, BOARD_WIDTH>;
@@ -17,8 +17,8 @@ public:
 
     GameBoard();
 
-    std::uint8_t getBoardWidth() const;
-    std::uint8_t getBoardHeight() const;
+    std::int8_t getBoardWidth() const;
+    std::int8_t getBoardHeight() const;
 
     BoardArray& getBoardArray();
     const BoardArray& getBoardArray() const;
